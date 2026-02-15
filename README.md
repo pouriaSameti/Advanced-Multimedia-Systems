@@ -6,7 +6,7 @@ All projects were completed under the supervision of **Dr. Nader Karimi**, and e
 
 ### Table of Contents
 [Exercise 1: RGB to Grayscale Conversion](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-1-rgb-to-grayscale-conversion)<br>
-[Exercise 2: Spatial Redundancy Reduction]()<br>
+[Exercise 2: Spatial Redundancy Reduction](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/blob/main/README.md#exercise-2-spatial-redundancy-reduction-lossless-prediction)<br>
 [Exercise 3]()<br>
 [Final Project]()<br>
 <br>
@@ -72,9 +72,9 @@ The performance of different predictors is compared in terms of compression effi
 1. Implementation of the classical Median Edge Detector (MED) predictor
 2. Third-Order Linear Predictor (Optimum Mode)
 3. Designed Predictors (Hybrid and Adaptive Models)
-     + Partitioning + MED: In this method, we combine the MED (Median Edge Detector) predictor with a partitioning technique for image prediction and reconstruction. The core idea is to predict each pixel’s value based on         its neighbors and then encode the prediction error, which often results in better compression efficiency.
-     + Second-Order Optimum Least Squares Predictor with Partitioning: in this method, we combine a linear predictor with adaptive coefficients and a partitioning technique. The image is divided into several horizontal partitions, and for each partition, a coefficient ρ is computed to best capture the local correlation between neighboring pixels.
-     + MED with Context Modeling: Using these contexts, the MED predictor is applied in a fully vectorized manner to generate a predicted value for each pixel. Prediction residuals (the difference between the original pixel and the prediction) are then separated into four lists, one for each context, using a fast Numba-optimized routine.
+     + **Partitioning + MED**: In this method, we combine the MED (Median Edge Detector) predictor with a partitioning technique for image prediction and reconstruction. The core idea is to predict each pixel’s value based on         its neighbors and then encode the prediction error, which often results in better compression efficiency.
+     + **Second-Order Optimum Least Squares Predictor with Partitioning**: in this method, we combine a linear predictor with adaptive coefficients and a partitioning technique. The image is divided into several horizontal partitions, and for each partition, a coefficient ρ is computed to best capture the local correlation between neighboring pixels.
+     + **MED with Context Modeling**: Using these contexts, the MED predictor is applied in a fully vectorized manner to generate a predicted value for each pixel. Prediction residuals (the difference between the original pixel and the prediction) are then separated into four lists, one for each context, using a fast Numba-optimized routine.
        
 4. Evaluation and Comparison:
     + Reconstruction Accuracy (MSE between reconstructed image and original input)
