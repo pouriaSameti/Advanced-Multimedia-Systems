@@ -8,7 +8,7 @@ All projects were completed under the supervision of **Dr. Nader Karimi**, and e
 [Exercise 1: RGB to Grayscale Conversion](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-1-rgb-to-grayscale-conversion)<br>
 [Exercise 2: Spatial Redundancy Reduction](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/blob/main/README.md#exercise-2-spatial-redundancy-reduction-lossless-prediction)<br>
 [Exercise 3: Exercise 3: Spectral Redundancy Reduction (Transform-Based Compression)](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-3-spectral-redundancy-reduction-transform-based-compression)<br>
-[Final Project]()<br>
+[Final Project: Stereo Image Compression]()<br>
 <br>
 
 ### Installation
@@ -135,6 +135,8 @@ The objective of this project is to design a lossless stereo image compression s
   + Using the left image as a reference
   + Reconstructing the right image via motion estimation and compensation
   + Encoding only the residual information
+    
+![4-Encoder + Quantization + Hyperprior + T-CA + Decoder - Page 1](https://github.com/user-attachments/assets/ff8a19b4-399a-4f9a-83b8-d0ef44d88083)
 
 ### Key Design Characteristics
   + Fully lossless reconstruction
@@ -163,17 +165,15 @@ The system consists of an encoder–decoder architecture described below.
    + Improves decorrelation between luminance and chrominance components
 2. Level Shifting
    + Pixel values shifted to center the dynamic range around zero
-   + Facilitates prediction and residual modeling
-     
-3️. Right Image Padding
+   + Facilitates prediction and residual modeling 
+3. Right Image Padding
     + Padding applied according to block size
     + Ensures compatibility with block-based motion estimation
-    
-4️. Motion Estimation (Inter-View Prediction)
+4. Motion Estimation (Inter-View Prediction)
     + Block-based motion estimation between left (reference) and right images
     + Implemented using Three-Step Search (3SS) algorithm
     + Motion vectors computed for each block
-5️. Motion Compensation & Residual Computation
+5. Motion Compensation & Residual Computation
     + Predicted right image generated using motion vectors
     + Only residual and motion vectors are encoded
 6. Left Image Predictive Coding
@@ -192,12 +192,9 @@ The system consists of an encoder–decoder architecture described below.
     + Right residual
     + Exact reconstruction of the right image
 
-3️. Cropping
+3. Cropping
     + Removal of padding
-
-4️. Inverse Level Shifting
-5️. YUV to RGB Conversion
+4. Inverse Level Shifting
+5. YUV to RGB Conversion
 
 Final reconstruction of both images in RGB space
-
-Perfect reconstruction of reference image
