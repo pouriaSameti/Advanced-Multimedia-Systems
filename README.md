@@ -7,7 +7,7 @@ All projects were completed under the supervision of **Dr. Nader Karimi**, and e
 ### Table of Contents
 [Exercise 1: RGB to Grayscale Conversion](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-1-rgb-to-grayscale-conversion)<br>
 [Exercise 2: Spatial Redundancy Reduction](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/blob/main/README.md#exercise-2-spatial-redundancy-reduction-lossless-prediction)<br>
-[Exercise 3: Exercise 3: Spectral Redundancy Reduction](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-3-spectral-redundancy-reduction-transform-based-compression)<br>
+[Exercise 3: Spectral Redundancy Reduction](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-3-spectral-redundancy-reduction-transform-based-compression)<br>
 [Final Project: Stereo Image Compression](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/blob/main/README.md#final-project-stereo-image-compression-lossless-framework)<br>
 <br>
 
