@@ -7,7 +7,7 @@ All projects were completed under the supervision of **Dr. Nader Karimi**, and e
 ### Table of Contents
 [Exercise 1: RGB to Grayscale Conversion](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-1-rgb-to-grayscale-conversion)<br>
 [Exercise 2: Spatial Redundancy Reduction](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/blob/main/README.md#exercise-2-spatial-redundancy-reduction-lossless-prediction)<br>
-[Exercise 3]()<br>
+[Exercise 3: Exercise 3: Spectral Redundancy Reduction (Transform-Based Compression)]()<br>
 [Final Project]()<br>
 <br>
 
@@ -80,6 +80,55 @@ The performance of different predictors is compared in terms of compression effi
     + Reconstruction Accuracy (MSE between reconstructed image and original input)
     + Compression Efficiency (Entropy of prediction residuals)
     + Computational Complexity (Compression runtime & Decompression runtime)
+
+
+## Exercise 3: Spectral Redundancy Reduction (Transform-Based Compression)
+
+### Objective
+In this exercise, we focus on reducing **spectral redundancy** using transform-domain and color-space compression techniques.
+The primary tools employed are:
+  + **Discrete Cosine Transform (DCT)**
+  + **YCbCr color space transformation**
+  + **Chrominance downsampling (4:4:0 and 4:2:0 modes)**
+
+We begin with baseline implementations and progressively design improved compression strategies aimed at maximizing PSNR while maintaining efficient redundancy reduction. Evaluation is conducted on standard benchmark images, including Barbara and other commonly used test images.
+
+### Implementation Details
+1. DCT-Based Transform Coding. Implementation of:
+    + 2D Discrete Cosine Transform (DCT)
+    + Inverse DCT (IDCT)
+    + Complete encoder–decoder pipeline
+    + Block-based processing (8x8 Blocks)
+
+2. High-Frequency Masking in DCT Domain. Designed a compression approach by:
+     + Transforming the image into DCT domain
+     + Suppressing (masking) high-frequency coefficients
+     + Reconstruction using IDCT
+     + Analysis of distortion vs. energy compaction trade-off
+  
+3. YCbCr-Based Compression with Chrominance Subsampling. RGB to YCbCr transformation. Implementation of:
+     + 4:4:0 subsampling
+     + 4:2:0 subsampling
+     + Decoder pipeline (Upsampling & YCbCr → RGB reconstruction)
+     + Evaluation of chrominance redundancy removal
+       
+4. Improved YCbCr (4:2:0) with Gaussian Smoothing
+     + Encoder (RGB → YCbCr & 4:2:0 chrominance subsampling)
+     + Decoder (Chrominance upsampling & Gaussian smoothing filter applied to reduce aliasing artifacts & YCbCr to RGB reconstruction)
+     + This approach improves visual quality and PSNR compared to naive upsampling
+
+5. Enhanced YCbCr (4:2:0) with Mean Pooling + Gaussian Smoothing
+     + Encoder (RGB → YCbCr 4:2:0 subsampling using Mean Pooling for chroma downsampling chrominance subsampling)
+     + Decoder (Chrominance upsampling & Gaussian smoothing filter applied to reduce aliasing artifacts & YCbCr to RGB reconstruction)
+     + This approach improves visual quality and PSNR compared to naive upsampling
+  
+6. Evaluation Criteria. Each method was evaluated using:
+    + Channel-wise Entropy
+    + Red channel entropy
+    + Green channel entropy
+    + Blue channel entropy
+    + Average Channel Entropy
+       
 
 
 
