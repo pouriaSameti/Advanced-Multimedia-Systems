@@ -7,7 +7,7 @@ All projects were completed under the supervision of **Dr. Nader Karimi**, and e
 ### Table of Contents
 [Exercise 1: RGB to Grayscale Conversion](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-1-rgb-to-grayscale-conversion)<br>
 [Exercise 2: Spatial Redundancy Reduction](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/blob/main/README.md#exercise-2-spatial-redundancy-reduction-lossless-prediction)<br>
-[Exercise 3: Exercise 3: Spectral Redundancy Reduction (Transform-Based Compression)]()<br>
+[Exercise 3: Exercise 3: Spectral Redundancy Reduction (Transform-Based Compression)](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-3-spectral-redundancy-reduction-transform-based-compression)<br>
 [Final Project]()<br>
 <br>
 
@@ -128,7 +128,76 @@ We begin with baseline implementations and progressively design improved compres
     + Green channel entropy
     + Blue channel entropy
     + Average Channel Entropy
-       
 
+## Final Project: Stereo Image Compression (Lossless Framework)
+### Objective
+The objective of this project is to design a lossless stereo image compression system by exploiting inter-view (temporal-like) redundancy between left and right images. Stereo image pairs exhibit strong correlation between views. We leverage this redundancy by:
+  + Using the left image as a reference
+  + Reconstructing the right image via motion estimation and compensation
+  + Encoding only the residual information
 
+### Key Design Characteristics
+  + Fully lossless reconstruction
+  + Inter-view prediction reduces stereo redundancy
+  + Combination of:
+    + Predictive coding (MED)
+    + Block-based motion estimation
+    + Residual entropy reduction
 
+Efficient decorrelation in both spatial and inter-view domains
+
+Our framework integrates techniques targeting:
+  + **Spatial redundancy** (predictive coding using MED)
+  + **Statistical redundancy** (entropy reduction of residuals)
+  + **Spectral redundancy** (color space transformation)
+  + **Inter-view redundancy** (motion estimation between stereo pairs)
+
+The overall design follows a predictive lossless compression paradigm inspired by motion-compensated coding and JPEG lossless principles.
+
+### Implementation Details
+The system consists of an encoder–decoder architecture described below.
+
+**Encoder:**
+1. Color Space Transformation
+   + Convert both left and right images from RGB to YUV
+   + Improves decorrelation between luminance and chrominance components
+2. Level Shifting
+   + Pixel values shifted to center the dynamic range around zero
+   + Facilitates prediction and residual modeling
+     
+3️. Right Image Padding
+    + Padding applied according to block size
+    + Ensures compatibility with block-based motion estimation
+    
+4️. Motion Estimation (Inter-View Prediction)
+    + Block-based motion estimation between left (reference) and right images
+    + Implemented using Three-Step Search (3SS) algorithm
+    + Motion vectors computed for each block
+5️. Motion Compensation & Residual Computation
+    + Predicted right image generated using motion vectors
+    + Only residual and motion vectors are encoded
+6. Left Image Predictive Coding
+     + Median Edge Predictor (MED) applied to the left image
+     + Residual computed and entropy-coded
+     + Ensures lossless reconstruction
+
+**Decoder:**
+1. Left Image Reconstruction
+    + MED-based decoding of left image residual
+    + Perfect reconstruction of reference image
+
+2. Right Image Reconstruction
+    + Motion compensation using:
+    + Motion vectors
+    + Right residual
+    + Exact reconstruction of the right image
+
+3️. Cropping
+    + Removal of padding
+
+4️. Inverse Level Shifting
+5️. YUV to RGB Conversion
+
+Final reconstruction of both images in RGB space
+
+Perfect reconstruction of reference image
