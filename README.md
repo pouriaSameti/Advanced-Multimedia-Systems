@@ -6,7 +6,7 @@ All projects were completed under the supervision of **Dr. Nader Karimi**, and e
 
 ### Table of Contents
 [Exercise 1: RGB to Grayscale Conversion](https://github.com/pouriaSameti/Advanced-Multimedia-Systems/tree/main?tab=readme-ov-file#exercise-1-rgb-to-grayscale-conversion)<br>
-[Exercise 2]()<br>
+[Exercise 2: Spatial Redundancy Reduction]()<br>
 [Exercise 3]()<br>
 [Final Project]()<br>
 <br>
